@@ -72,13 +72,17 @@ const processNewPlayerRequest = async (playerAddress) => {
 
 const processSettleChallengeRequest = async (challengeHash) => {
 	try {
-		console.log("PROCESSING CHALLENGE : ", challengeHash);
-		const encodedData = contract.methods.settleChallenge(challengeHash, generateRandomNumber(1, 100)).encodeABI();
+		setTimeout(async () => {
+			console.log("PROCESSING CHALLENGE : ", challengeHash);
+			const encodedData = contract.methods
+				.settleChallenge(challengeHash, generateRandomNumber(1, 100))
+				.encodeABI();
 
-		const signedTransaction = await signTransaction(encodedData);
-		const status = await sendTransaction(signedTransaction);
+			const signedTransaction = await signTransaction(encodedData);
+			const status = await sendTransaction(signedTransaction);
 
-		console.log("TRANSACTION STATUS : ", status);
+			console.log("TRANSACTION STATUS : ", status);
+		}, 10000);
 	} catch (err) {
 		console.log("CHALLENEGE ERROR : ", err);
 	}

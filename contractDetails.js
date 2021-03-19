@@ -1,4 +1,4 @@
-const ADDRESS = "0xa88E8865BC60F2DaBbDe610F6EdeC477554AFebd";
+const ADDRESS = "0xcBc0c380d5e428Fb7F4d2Dfe7E431542efE828fa";
 const ABI = [
 	{
 		constant: false,
